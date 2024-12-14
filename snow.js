@@ -1,4 +1,5 @@
 window.onload = function(){
+
     var canvas = document.getElementById("sky");
     var ctx = canvas.getContext("2d");
 
@@ -20,14 +21,18 @@ for(var i = 0; i < mf; i++)
         y: Math.random()*H,
         r: Math.random()*5+2,
         d:Math.random() + 1
-    })
+    });
 }
+var userName = prompt("Please enter your name:", "User");
+    var angle = 0;
+
 
 function drawFlakes()
 {
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = "white";
     ctx.beginPath();
+
     for(var i = 0; i < mf; i++)
     {
         var f = flakes[i];
@@ -39,7 +44,7 @@ function drawFlakes()
      ctx.fillStyle = "gold";
      ctx.textAlign = "center";
 
-     const message = "Wishing you a Merry Chrismas and a Joyful New Year!";
+     const message = `Wishing you a Merry Chrismas, ${userName}`;
      const subMessage ="May your holidays be filled with peace, love and happiness.";
 
      ctx.fillText(message, W / 2, H / 2 - 20);
@@ -50,7 +55,6 @@ function drawFlakes()
     moveFlakes();
 }
 
-var angle = 0;
 
 function moveFlakes(){
     angle += 0.01;
